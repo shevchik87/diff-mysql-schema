@@ -37,7 +37,6 @@ class DB
     public function getSchemaTable($table)
     {
         $result = $this->db->query('DESCRIBE '.$table);
-        var_dump($result->num_rows);
 
         if ($result->num_rows == null){
             return [];

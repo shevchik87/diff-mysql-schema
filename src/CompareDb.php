@@ -19,8 +19,15 @@ class CompareDb
             $schema_main = $this->main->getSchemaTable($table);
             $schema_child = $this->child->getSchemaTable($table);
 
-            echo $table.PHP_EOL;
-            var_dump(array_diff($schema_main,$schema_child));
+
+            $result = array_diff($schema_main,$schema_child);
+
+            if (!empty($result)) {
+                echo 'Table - '. $table.PHP_EOL;
+                foreach ($result as $item) {
+                    echo 'column - '.$item.PHP_EOL;
+                }
+            }
         }
     }
 
